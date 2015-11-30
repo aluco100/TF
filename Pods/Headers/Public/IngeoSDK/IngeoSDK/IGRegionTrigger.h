@@ -1,0 +1,1 @@
+../../../../IngeoSDK/Framework/IngeoSDK.framework/Versions/A/Headers/IGRegionTrigger.h
