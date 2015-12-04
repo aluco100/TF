@@ -37,6 +37,9 @@ class ViewController: UIViewController,CLLocationManagerDelegate, UITableViewDel
         //imprimir las coordenadas
         let userstandar: NSUserDefaults = NSUserDefaults.standardUserDefaults()
         if(userstandar.objectForKey("coordinates") != nil){
+            let alert = UIAlertController(title: "Title", message: "Candidatos Encontrados", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
             let coordenadas = userstandar.objectForKey("coordinates") as? [CLLocationCoordinate2D]
             for i in coordenadas!{
                 print("lat: \(i.latitude)  long: \(i.longitude)")
@@ -56,12 +59,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate, UITableViewDel
     }
     
     @IBAction func getAuthorization(sender: AnyObject) {
-        if(contador == 0){
-            provider.getAuth()
-            provider.registerTweetsListener(self)
-        }
-        
-        contador++;
+       
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -37,6 +37,7 @@ class PlaceManager: NSObject ,IGLocationManagerDelegate {
             //self.saveCoordinates(coordinates)
             self.radar?.getNearlyPlaces(coordinates, callback: { ()-> Void in
                 let candidates: [CandidateLocation]? = (self.radar?.getVenues())
+                self.saveCandidates(candidates)
                 if(candidates != nil){
                     for i in candidates!{
                         print("twitter: \(i.getTwitter())")
@@ -67,6 +68,36 @@ class PlaceManager: NSObject ,IGLocationManagerDelegate {
             userdefaults.setObject(aux as? AnyObject, forKey: "coordinates")
         }
 
+    }
+    
+    internal func saveCandidates(candidates: [CandidateLocation]?){
+        var flag = true
+        if(candidates == nil){
+            return
+        }
+        let userdefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        if(userdefaults.objectForKey("candidates") != nil){
+            let user_data = userdefaults.objectForKey("candidates") as? NSData
+            var aux = NSKeyedUnarchiver.unarchiveObjectWithData(user_data!) as! [CandidateLocation]
+            for i in candidates!{
+                for j in aux{
+                    if(i.getVenue() == j.getVenue()){
+                        flag = false
+                    }
+                }
+                if(flag){
+                    aux.append(i)
+                }
+                flag = true
+            }
+            let mutable: NSMutableArray = NSMutableArray(array: aux)
+            let data: NSData = NSKeyedArchiver.archivedDataWithRootObject(mutable)
+            userdefaults.setObject(data, forKey: "candidates")
+        }else{
+            let mutable: NSMutableArray = NSMutableArray(array: candidates!)
+            let data: NSData = NSKeyedArchiver.archivedDataWithRootObject(mutable)
+            userdefaults.setObject(data, forKey: "candidates")
+        }
     }
     
 }

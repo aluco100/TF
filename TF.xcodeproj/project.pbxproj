@@ -14,6 +14,15 @@
 		0C10D3AE1C0A2A4700255D7A /* CandidateLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C10D3AD1C0A2A4700255D7A /* CandidateLocation.swift */; };
 		0C10D3B01C0A2AA900255D7A /* Radar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C10D3AF1C0A2AA900255D7A /* Radar.swift */; };
 		0C10D3B21C0A2BB800255D7A /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C10D3B11C0A2BB800255D7A /* PlaceManager.swift */; };
+		0C3478581C0D25F100E4FE4B /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C3478551C0D25F100E4FE4B /* Icon-Small-50.png */; };
+		0C3478591C0D25F100E4FE4B /* Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C3478561C0D25F100E4FE4B /* Icon-Small-50@2x.png */; };
+		0C34785A1C0D25F100E4FE4B /* icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C3478571C0D25F100E4FE4B /* icon.jpg */; };
+		0C3478601C0D285700E4FE4B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C34785E1C0D285700E4FE4B /* Icon.png */; };
+		0C3478611C0D285700E4FE4B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C34785F1C0D285700E4FE4B /* Icon@2x.png */; };
+		0C3478631C0D29C700E4FE4B /* rsz_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C3478621C0D29C700E4FE4B /* rsz_icon.png */; };
+		0C66F1BF1C0CD50800312166 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66F1BE1C0CD50800312166 /* SigninViewController.swift */; };
+		0C66F1C41C0CDB1A00312166 /* ButtonTwitterNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C66F1C31C0CDB1A00312166 /* ButtonTwitterNormal.png */; };
+		0C66F1C61C0CF1D300312166 /* slide01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C66F1C51C0CF1D300312166 /* slide01.jpg */; };
 		0C740BBB1C09EC3F0079EC55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C740BBA1C09EC3F0079EC55 /* AppDelegate.swift */; };
 		0C740BBD1C09EC3F0079EC55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C740BBC1C09EC3F0079EC55 /* ViewController.swift */; };
 		0C740BC01C09EC3F0079EC55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C740BBE1C09EC3F0079EC55 /* Main.storyboard */; };
@@ -98,6 +107,15 @@
 		0C10D3AD1C0A2A4700255D7A /* CandidateLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateLocation.swift; sourceTree = "<group>"; };
 		0C10D3AF1C0A2AA900255D7A /* Radar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radar.swift; sourceTree = "<group>"; };
 		0C10D3B11C0A2BB800255D7A /* PlaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceManager.swift; sourceTree = "<group>"; };
+		0C3478551C0D25F100E4FE4B /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = SOURCE_ROOT; };
+		0C3478561C0D25F100E4FE4B /* Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50@2x.png"; sourceTree = SOURCE_ROOT; };
+		0C3478571C0D25F100E4FE4B /* icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon.jpg; sourceTree = SOURCE_ROOT; };
+		0C34785E1C0D285700E4FE4B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../../../../Downloads/icon/ios/Icon.png; sourceTree = "<group>"; };
+		0C34785F1C0D285700E4FE4B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../../../../Downloads/icon/ios/Icon@2x.png"; sourceTree = "<group>"; };
+		0C3478621C0D29C700E4FE4B /* rsz_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rsz_icon.png; sourceTree = SOURCE_ROOT; };
+		0C66F1BE1C0CD50800312166 /* SigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		0C66F1C31C0CDB1A00312166 /* ButtonTwitterNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ButtonTwitterNormal.png; path = "../../../../Downloads/Swifter-master/SwifterDemoiOS/Images.xcassets/ButtonTwitterNormal.imageset/ButtonTwitterNormal.png"; sourceTree = "<group>"; };
+		0C66F1C51C0CF1D300312166 /* slide01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = slide01.jpg; sourceTree = SOURCE_ROOT; };
 		0C740BB71C09EC3F0079EC55 /* TF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C740BBA1C09EC3F0079EC55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C740BBC1C09EC3F0079EC55 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -189,11 +207,20 @@
 		0C740BB91C09EC3F0079EC55 /* TF */ = {
 			isa = PBXGroup;
 			children = (
+				0C66F1C31C0CDB1A00312166 /* ButtonTwitterNormal.png */,
+				0C66F1C51C0CF1D300312166 /* slide01.jpg */,
 				0C740BBA1C09EC3F0079EC55 /* AppDelegate.swift */,
-				0C740BBC1C09EC3F0079EC55 /* ViewController.swift */,
 				0C740BBE1C09EC3F0079EC55 /* Main.storyboard */,
 				0C740BC11C09EC3F0079EC55 /* Assets.xcassets */,
+				0C3478621C0D29C700E4FE4B /* rsz_icon.png */,
+				0C3478551C0D25F100E4FE4B /* Icon-Small-50.png */,
+				0C34785E1C0D285700E4FE4B /* Icon.png */,
+				0C34785F1C0D285700E4FE4B /* Icon@2x.png */,
+				0C3478561C0D25F100E4FE4B /* Icon-Small-50@2x.png */,
+				0C3478571C0D25F100E4FE4B /* icon.jpg */,
 				0C740BC31C09EC3F0079EC55 /* LaunchScreen.storyboard */,
+				0C740BBC1C09EC3F0079EC55 /* ViewController.swift */,
+				0C66F1BE1C0CD50800312166 /* SigninViewController.swift */,
 				0C10D3B11C0A2BB800255D7A /* PlaceManager.swift */,
 				0C10D3A91C0A28B500255D7A /* TwitterManager.swift */,
 				0C10D3AD1C0A2A4700255D7A /* CandidateLocation.swift */,
@@ -383,9 +410,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C3478601C0D285700E4FE4B /* Icon.png in Resources */,
+				0C34785A1C0D25F100E4FE4B /* icon.jpg in Resources */,
 				0C740BC51C09EC3F0079EC55 /* LaunchScreen.storyboard in Resources */,
 				0C740BC21C09EC3F0079EC55 /* Assets.xcassets in Resources */,
+				0C3478631C0D29C700E4FE4B /* rsz_icon.png in Resources */,
+				0C3478591C0D25F100E4FE4B /* Icon-Small-50@2x.png in Resources */,
+				0C66F1C41C0CDB1A00312166 /* ButtonTwitterNormal.png in Resources */,
+				0C3478581C0D25F100E4FE4B /* Icon-Small-50.png in Resources */,
 				0C740BC01C09EC3F0079EC55 /* Main.storyboard in Resources */,
+				0C66F1C61C0CF1D300312166 /* slide01.jpg in Resources */,
+				0C3478611C0D285700E4FE4B /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +497,7 @@
 				0C10D3AE1C0A2A4700255D7A /* CandidateLocation.swift in Sources */,
 				0C740BBD1C09EC3F0079EC55 /* ViewController.swift in Sources */,
 				0C10D3AC1C0A293000255D7A /* TweetsListener.swift in Sources */,
+				0C66F1BF1C0CD50800312166 /* SigninViewController.swift in Sources */,
 				0C10D3B21C0A2BB800255D7A /* PlaceManager.swift in Sources */,
 				0C10D3AA1C0A28B500255D7A /* TwitterManager.swift in Sources */,
 				0C740BBB1C09EC3F0079EC55 /* AppDelegate.swift in Sources */,
