@@ -32,7 +32,7 @@ class PlaceManager: NSObject ,IGLocationManagerDelegate {
     
     func igLocationManager(manager: IGLocationManager!, didUpdateLocation igLocation: IGLocation!) {
         print("description: \(igLocation.description)")
-        if(igLocation.motionState == .Seeking){
+        if(igLocation.motionState == .Seeking || igLocation.motionState == .Standing){
             let coordinates: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: igLocation.latitude, longitude: igLocation.longitude)
             //self.saveCoordinates(coordinates)
             self.radar?.getNearlyPlaces(coordinates, callback: { ()-> Void in

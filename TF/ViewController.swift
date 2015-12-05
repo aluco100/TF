@@ -31,11 +31,13 @@ class ViewController: UIViewController,CLLocationManagerDelegate, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "slide02.jpg")!).colorWithAlphaComponent(0.9)
         
         placemngr = PlaceManager(_radar: radar, _swifter: provider)
         
         Table.delegate = self
         Table.dataSource = self
+        Table.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.9)
         
         
         //ejemplo candidato
@@ -92,6 +94,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate, UITableViewDel
         //cell.textLabel?.text = users[indexPath.row]
         cell.textLabel?.text = candidatos[indexPath.row].getVenue()
         cell.selectionStyle = .None
+        cell.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.9)
         
         return cell
     }

@@ -21,6 +21,7 @@
 		0C3478601C0D285700E4FE4B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C34785E1C0D285700E4FE4B /* Icon.png */; };
 		0C3478611C0D285700E4FE4B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C34785F1C0D285700E4FE4B /* Icon@2x.png */; };
 		0C3478631C0D29C700E4FE4B /* rsz_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C3478621C0D29C700E4FE4B /* rsz_icon.png */; };
+		0C5A4A671C13910A00753DA2 /* slide02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C5A4A661C13910A00753DA2 /* slide02.jpg */; };
 		0C66F1BF1C0CD50800312166 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66F1BE1C0CD50800312166 /* SigninViewController.swift */; };
 		0C66F1C41C0CDB1A00312166 /* ButtonTwitterNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C66F1C31C0CDB1A00312166 /* ButtonTwitterNormal.png */; };
 		0C66F1C61C0CF1D300312166 /* slide01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C66F1C51C0CF1D300312166 /* slide01.jpg */; };
@@ -115,6 +116,7 @@
 		0C34785E1C0D285700E4FE4B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../../../../Downloads/icon/ios/Icon.png; sourceTree = "<group>"; };
 		0C34785F1C0D285700E4FE4B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../../../../Downloads/icon/ios/Icon@2x.png"; sourceTree = "<group>"; };
 		0C3478621C0D29C700E4FE4B /* rsz_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rsz_icon.png; sourceTree = SOURCE_ROOT; };
+		0C5A4A661C13910A00753DA2 /* slide02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = slide02.jpg; sourceTree = SOURCE_ROOT; };
 		0C66F1BE1C0CD50800312166 /* SigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		0C66F1C31C0CDB1A00312166 /* ButtonTwitterNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ButtonTwitterNormal.png; path = "../../../../Downloads/Swifter-master/SwifterDemoiOS/Images.xcassets/ButtonTwitterNormal.imageset/ButtonTwitterNormal.png"; sourceTree = "<group>"; };
 		0C66F1C51C0CF1D300312166 /* slide01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = slide01.jpg; sourceTree = SOURCE_ROOT; };
@@ -219,6 +221,7 @@
 				0C3478551C0D25F100E4FE4B /* Icon-Small-50.png */,
 				0C34785E1C0D285700E4FE4B /* Icon.png */,
 				0C34785F1C0D285700E4FE4B /* Icon@2x.png */,
+				0C5A4A661C13910A00753DA2 /* slide02.jpg */,
 				0C3478561C0D25F100E4FE4B /* Icon-Small-50@2x.png */,
 				0C3478571C0D25F100E4FE4B /* icon.jpg */,
 				0C740BC31C09EC3F0079EC55 /* LaunchScreen.storyboard */,
@@ -414,6 +417,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C3478601C0D285700E4FE4B /* Icon.png in Resources */,
+				0C5A4A671C13910A00753DA2 /* slide02.jpg in Resources */,
 				0C34785A1C0D25F100E4FE4B /* icon.jpg in Resources */,
 				0C740BC51C09EC3F0079EC55 /* LaunchScreen.storyboard in Resources */,
 				0C740BC21C09EC3F0079EC55 /* Assets.xcassets in Resources */,
