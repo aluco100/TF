@@ -31,13 +31,13 @@ class PlaceManager: NSObject ,IGLocationManagerDelegate {
     }
     
     func igLocationManager(manager: IGLocationManager!, didUpdateLocation igLocation: IGLocation!) {
-        print("description: \(igLocation.description)")
+        print(igLocation.description)
         if(igLocation.motionState == .Seeking || igLocation.motionState == .Standing){
             let coordinates: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: igLocation.latitude, longitude: igLocation.longitude)
-            //self.saveCoordinates(coordinates)
+            self.saveCoordinates(coordinates)
             self.radar?.getNearlyPlaces(coordinates, callback: { ()-> Void in
                 let candidates: [CandidateLocation]? = (self.radar?.getVenues())
-                self.saveCandidates(candidates)
+                print(candidates)
                 if(candidates != nil){
                     for i in candidates!{
                         print("twitter: \(i.getTwitter())")
@@ -45,6 +45,7 @@ class PlaceManager: NSObject ,IGLocationManagerDelegate {
                         let twitter = i.getTwitter()
                         self.swifter?.follow(twitter!)
                     }
+                    self.saveCandidates(self.candidates)
                 }
             })
         }
@@ -76,7 +77,6 @@ class PlaceManager: NSObject ,IGLocationManagerDelegate {
             return
         }
         let userdefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        if(userdefaults.objectForKey("candidates") != nil){
             let user_data = userdefaults.objectForKey("candidates") as? NSData
             var aux = NSKeyedUnarchiver.unarchiveObjectWithData(user_data!) as! [CandidateLocation]
             for i in candidates!{
@@ -86,6 +86,11 @@ class PlaceManager: NSObject ,IGLocationManagerDelegate {
                     }
                 }
                 if(flag){
+                    let notification = UILocalNotification()
+                    notification.alertBody = "Se ha encontrado un nuevo lugar : \(i.getVenue())"
+                    notification.category = "invite"
+                    notification.fireDate = NSDate(timeIntervalSinceNow: 5)
+                    UIApplication.sharedApplication().scheduleLocalNotification(notification)
                     aux.append(i)
                 }
                 flag = true
@@ -93,11 +98,6 @@ class PlaceManager: NSObject ,IGLocationManagerDelegate {
             let mutable: NSMutableArray = NSMutableArray(array: aux)
             let data: NSData = NSKeyedArchiver.archivedDataWithRootObject(mutable)
             userdefaults.setObject(data, forKey: "candidates")
-        }else{
-            let mutable: NSMutableArray = NSMutableArray(array: candidates!)
-            let data: NSData = NSKeyedArchiver.archivedDataWithRootObject(mutable)
-            userdefaults.setObject(data, forKey: "candidates")
-        }
     }
     
 }

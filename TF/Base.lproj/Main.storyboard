@@ -66,26 +66,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6e3-o7-zcB">
-                                <rect key="frame" x="247" y="514" width="99" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="0xe-0e-1JS"/>
-                                    <constraint firstAttribute="width" constant="99" id="SOO-1q-prk"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="Auth"/>
-                                <connections>
-                                    <action selector="getAuthorization:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LyY-En-lxN"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="OQD-gd-fRi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-36" id="2uh-dy-eeX"/>
-                            <constraint firstItem="6e3-o7-zcB" firstAttribute="top" secondItem="OQD-gd-fRi" secondAttribute="bottom" constant="40" id="91m-jl-n1Y"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6e3-o7-zcB" secondAttribute="bottom" constant="38" id="Am6-bt-MLf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OQD-gd-fRi" secondAttribute="bottom" constant="126" id="aGn-4c-tfI"/>
                             <constraint firstItem="OQD-gd-fRi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-4" id="kNM-3l-mLr"/>
-                            <constraint firstItem="6e3-o7-zcB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-3.5" id="oxg-oK-gcj"/>
                             <constraint firstItem="OQD-gd-fRi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-49" id="ugO-AQ-Ps7"/>
                             <constraint firstItem="OQD-gd-fRi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="7" id="wWb-7L-YDJ"/>
                         </constraints>

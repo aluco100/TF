@@ -20,9 +20,10 @@ class Radar {
         let clientSecret: String = "HR2TZ1AGRUXMPQEOP3N3AGUX2WAY3UQAQFKFD54YOHOSAZ2N"
         let url: String = "coevent://callback"
         let client = Client(clientID: clientID, clientSecret: clientSecret, redirectURL:url)
-        let configuration = Configuration(client: client)
+        var configuration = Configuration(client: client)
+        configuration.debugEnabled = true
+        configuration.mode = nil
         Session.setupSharedSessionWithConfiguration(configuration)
-        
         session = Session.sharedSession()
         
     }
@@ -36,34 +37,35 @@ class Radar {
     internal func getNearlyPlaces(coordinates: CLLocationCoordinate2D, callback: ()->Void){
         let ejes: String = "\(coordinates.latitude),\(coordinates.longitude)"
         let parameters = [Parameter.ll:ejes]
-        let searchTask = self.session.venues.search(parameters) {
+        let searchTask = self.session.venues.explore(parameters) {
             (result) -> Void in
             if let response = result.response {
-                print(response)
-                
-                for i in 0...response["venues"]!.count-1{
-                    let venue:AnyObject = response["venues"]![i]
-                    var name = ""
-                    var twitter: String? = ""
-                    var lat: CLLocationDegrees?
-                    var long: CLLocationDegrees?
-                    if(venue["contact"] != nil){
-                        let object: NSArray = (venue["categories"])! as! NSArray
-                        let object2: NSArray? = (venue["contact"])! as? NSArray
-                        let object3 : NSArray? = venue["location"] as? NSArray
-                        if(object.count != 0 && object2 != nil  && object3 != nil){
-                            name = (object[0]["name"] as! String)
-                            twitter = (object2![0]["twitter"] as? String)
-                            lat = (object3![0]["lat"] as? CLLocationDegrees)
-                            long = (object3![0]["long"] as? CLLocationDegrees)
-                            print(name)
+                for i in 0...response["groups"]!.count-1{
+                    let group = response["groups"]![i]
+                    for j in 0...group["items"]!!.count-1 {
+                        var name = ""
+                        var twitter: String? = ""
+                        var lat: CLLocationDegrees?
+                        var long: CLLocationDegrees?
+                        let venue = group["items"]!![j]["venue"]
+                        if(venue!!["contact"] != nil){
+                            let object = (venue!!["name"])!
+                            let object2 = venue!!["contact"]
+                            let object3 = venue!!["location"]
+                            if(object2??["twitter"] != nil && object3??["lat"] != nil){
+                                name = object as! String
+                                twitter = (object2!!["twitter"] as? String)
+                                lat = (object3!!["lat"] as? CLLocationDegrees)
+                                long = (object3!!["lng"] as? CLLocationDegrees)
+                            }
+                            if (twitter != nil && twitter != ""){
+                                let coordenada: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
+                                let venue: CandidateLocation = CandidateLocation(Venue: name, Twitter: twitter, Coordinates: coordenada)
+                                self.candidatos.append(venue)
+                            }
+                            
                         }
-                        if (twitter != nil && twitter != ""){
-                            let coordenada: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
-                            let venue: CandidateLocation = CandidateLocation(Venue: name, Twitter: twitter, Coordinates: coordenada)
-                            self.candidatos.append(venue)
-                        }
-                        
+
                     }
                 }
             }
