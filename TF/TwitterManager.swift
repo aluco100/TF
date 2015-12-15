@@ -45,13 +45,13 @@ class TwitterManager{
     
     //metodo de autorizacion
     
-    internal func getAuth(){
+    internal func getAuth(callback:(error: NSError?)->Void){
         swifter.authorizeWithCallbackURL(self.callbackUrl,
             success: { (accessToken, response) -> Void in
-                self.getHomeTimeline()
+                callback(error: nil)
             },
             failure: { (error) -> Void in
-                print(error);
+                callback(error: error)
             },
             openQueryURL: nil,
             closeQueryURL: nil
@@ -61,16 +61,18 @@ class TwitterManager{
     
     //metodsos getter
     
-    internal func getHomeTimeline(){
+    internal func getHomeTimeline(callback: (tweets: [JSONValue], error: NSError?)->Void){
         let limit: Int = 100;
         //mas parametros que los vistos en el repositorio
-        self.swifter.getStatusesHomeTimelineWithCount(limit, trimUser: true, contributorDetails: true, includeEntities: true, success: {
+        self.swifter.getStatusesHomeTimelineWithCount(limit, trimUser: nil, contributorDetails: true, includeEntities: true, success: {
             (data: [JSONValue]?) in
             self.tweets = data!
             self.signalEvent()
+            callback(tweets: self.tweets, error: nil)
             
             }, failure: {
                 (error: NSError) in
+                callback(tweets: self.tweets, error: error)
                 //en caso de error
                 //print(error)
         })
@@ -78,7 +80,7 @@ class TwitterManager{
     }
     
     internal func getTweets() -> [JSONValue]{
-        self.getHomeTimeline()
+        
         return self.tweets
     }
     
@@ -130,7 +132,31 @@ class TwitterManager{
     }
     
     internal func follow(name: String){
-        self.swifter.postCreateFriendshipWithScreenName(name)
+        self.swifter.postCreateFriendshipWithScreenName(name, follow: true, success: {
+            (user: Dictionary<String, JSONValue>?) -> Void in
+            print("user: \(user)")
+            }, failure: {
+                (error: NSError) -> Void in
+                print("error: \(error)")
+        })
+    }
+    
+    internal func getCandidateFromTweetUser(name: String?)->CandidateLocation?{
+        if(name == nil){
+            return nil
+        }
+        let userdefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        if(userdefaults.objectForKey("candidates") != nil){
+            let user_data = userdefaults.objectForKey("candidates") as? NSData
+            let aux = NSKeyedUnarchiver.unarchiveObjectWithData(user_data!) as! [CandidateLocation]
+            for i in aux{
+                if(i.getTwitter() == name){
+                    print("twitter: \(i.getTwitter())")
+                    return i
+                }
+            }
+        }
+        return nil
     }
     
 }

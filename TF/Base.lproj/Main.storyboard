@@ -70,8 +70,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="OQD-gd-fRi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-36" id="2uh-dy-eeX"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OQD-gd-fRi" secondAttribute="bottom" constant="126" id="aGn-4c-tfI"/>
                             <constraint firstItem="OQD-gd-fRi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-4" id="kNM-3l-mLr"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OQD-gd-fRi" secondAttribute="bottom" constant="126" id="mXv-8a-tZY"/>
                             <constraint firstItem="OQD-gd-fRi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-49" id="ugO-AQ-Ps7"/>
                             <constraint firstItem="OQD-gd-fRi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="7" id="wWb-7L-YDJ"/>
                         </constraints>

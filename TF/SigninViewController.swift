@@ -18,11 +18,11 @@ class SigninViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "Signin"){
-            let destination = segue.destinationViewController as! ViewController
+            /*let destination = segue.destinationViewController as! ViewController
             dispatch_async(dispatch_get_main_queue(), {()-> Void in
                 destination.provider.getAuth()
                 destination.provider.registerTweetsListener(destination)
-            })
+            })*/
         }
     }
 

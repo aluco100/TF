@@ -13,7 +13,9 @@ import CoreLocation
 class Radar {
     var candidatos: [CandidateLocation]
     var session: Session
-    init(){
+    private static var instance: Radar? = nil
+    static let lock = dispatch_queue_create("instance.lock", nil)
+    private init(){
         candidatos = []
         
         let clientID: String = "L001HQEGGIHFOKQXAWAIM20FZG4MLMXX04JC3ALESBEEVFPT"
@@ -26,6 +28,15 @@ class Radar {
         Session.setupSharedSessionWithConfiguration(configuration)
         session = Session.sharedSession()
         
+    }
+    
+    internal static func getInstance() -> Radar{
+        dispatch_sync(lock){
+            if(instance == nil){
+                instance = Radar()
+            }
+        }
+        return instance!
     }
     
     //funciones getter
