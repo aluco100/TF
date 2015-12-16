@@ -10,16 +10,16 @@ import UIKit
 import MapKit
 import QuadratTouch
 import SwifteriOS
-class ViewController: UIViewController,CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, CandidateListener, TweetsListener {
+class ViewController: UIViewController,CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, TweetsListener {
     
     //outlets
     @IBOutlet weak var Table: UITableView!
     
     
     //variables
-    var provider: TwitterManager = TwitterManager()
+    var provider: TwitterManager = TwitterManager.getInstance()
     var radar: Radar = Radar.getInstance()
-    var placemngr: PlaceManager = PlaceManager(_radar: nil, _swifter: nil)
+    var placemngr: PlaceManager = PlaceManager.getInstance()
     
     var tweets:[JSONValue] = []
     var hashtags:[String] = []
@@ -30,11 +30,12 @@ class ViewController: UIViewController,CLLocationManagerDelegate, UITableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let userstandar: NSUserDefaults = NSUserDefaults.standardUserDefaults()
         provider.getAuth({
             (error: NSError?) -> Void in
             if(error == nil){
                 self.provider.registerTweetsListener(self)
-                self.placemngr = PlaceManager(_radar: self.radar, _swifter: self.provider)
+                self.placemngr = PlaceManager.getInstance()
                 self.provider.getHomeTimeline({
                     (tweets: [JSONValue], error: NSError?) -> Void in
                     
@@ -50,10 +51,10 @@ class ViewController: UIViewController,CLLocationManagerDelegate, UITableViewDel
         Table.delegate = self
         Table.dataSource = self
         Table.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.9)
+        Table.reloadData()
         
         
         //imprimir las coordenadas
-        let userstandar: NSUserDefaults = NSUserDefaults.standardUserDefaults()
         if(userstandar.objectForKey("candidates") != nil){
             let user_data = userstandar.objectForKey("candidates") as? NSData
             let aux = NSKeyedUnarchiver.unarchiveObjectWithData(user_data!) as! [CandidateLocation]
@@ -72,11 +73,6 @@ class ViewController: UIViewController,CLLocationManagerDelegate, UITableViewDel
         }
     }
     
-    func candidatesReload(candidates: [CandidateLocation]) {
-        dispatch_async(dispatch_get_main_queue()) {
-            self.Table.reloadData()
-        }
-    }
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

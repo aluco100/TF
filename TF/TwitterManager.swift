@@ -32,6 +32,20 @@ class TwitterManager{
     private var users: [String]
     private var tweetslistenercontainer: [TweetsListener]
     
+    private static var instance: TwitterManager? = nil
+    
+    static let lock = dispatch_queue_create("instance.lock", nil)
+    
+    internal static func getInstance() -> TwitterManager{
+        dispatch_sync(lock){
+            if(instance == nil){
+                instance = TwitterManager()
+            }
+        }
+        return instance!
+    }
+
+    
     init(){
         self.consumerKey = "NYYbKwT9gwjwpeSCIGc5f6hBY"
         self.consumerSecret = "IpeZzoM2JXRzeSvOZZlSni87DRtRdQf6Wpy1Jueis5xrPIdjTJ"
@@ -135,6 +149,7 @@ class TwitterManager{
         self.swifter.postCreateFriendshipWithScreenName(name, follow: true, success: {
             (user: Dictionary<String, JSONValue>?) -> Void in
             print("user: \(user)")
+            self.signalEvent()
             }, failure: {
                 (error: NSError) -> Void in
                 print("error: \(error)")

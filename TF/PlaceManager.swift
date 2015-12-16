@@ -10,19 +10,29 @@ import Foundation
 import UIKit
 
 class PlaceManager: NSObject ,IGLocationManagerDelegate {
-    private var radar: Radar?
-    private var swifter: TwitterManager?
+    private var radar: Radar? = Radar.getInstance()
+    var swifter: TwitterManager? = TwitterManager.getInstance()
     private var candidates: [CandidateLocation] = []
+    private static var instance: PlaceManager? = nil
     
-    required init(_radar: Radar?, _swifter: TwitterManager?){
+    static let lock = dispatch_queue_create("instance.lock", nil)
+    
+    internal static func getInstance() -> PlaceManager{
+        dispatch_sync(lock){
+            if(instance == nil){
+                instance = PlaceManager()
+            }
+        }
+        return instance!
+    }
+
+    
+    override init(){
         super.init()
         
         let api_key: String = "23ddd9035c998b244a9f7fc488c6ee88"
         IGLocationManager.initWithDelegate(self, secretAPIKey: api_key)
         IGLocationManager.startUpdatingLocation()
-        
-        self.radar = _radar
-        self.swifter = _swifter
         
     }
     
@@ -37,10 +47,8 @@ class PlaceManager: NSObject ,IGLocationManagerDelegate {
             self.saveCoordinates(coordinates)
             self.radar?.getNearlyPlaces(coordinates, callback: { ()-> Void in
                 let candidates: [CandidateLocation]? = (self.radar?.getVenues())
-                print(candidates)
                 if(candidates != nil){
                     for i in candidates!{
-                        print("twitter: \(i.getTwitter())")
                         self.candidates.append(i)
                         let twitter = i.getTwitter()
                         self.swifter?.follow(twitter!)

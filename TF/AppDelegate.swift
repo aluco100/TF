@@ -47,6 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = UIUserNotificationSettings(forTypes: notificationType, categories: categories as? Set<UIUserNotificationCategory>)
         application.registerUserNotificationSettings(settings)
         
+        PlaceManager.getInstance()
+        
         return true
     }
     
@@ -63,9 +65,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
-        let radar : Radar = Radar.getInstance()
-        let provider: TwitterManager = TwitterManager()
-        _ = PlaceManager(_radar: radar, _swifter: provider)
+        _ = PlaceManager.getInstance()
+        print("Background")
+        
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -78,6 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        PlaceManager.getInstance()
     }
 
 
